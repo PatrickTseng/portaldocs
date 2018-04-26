@@ -50,9 +50,24 @@ You can try out the monitor chart v2 control in the [Samples Extension][1], or v
 
 `\Client\V2\Preview\MonitorChartV2\MonitorChartV2Blade.ts`
 
-The sample has a static chart from dummy app on top and a configurable chart below it with various options. You can add a single or multiple metrics to the chart, Add a threshold on the first metric and adjust its value, add grouping/segmentation to the chart on selected dimensions and add filters to the chart.
+The sample has a static chart from DEMO_APP app on top and a configurable chart below it with various options. You can add a single or multiple metrics to the chart, add a threshold on the first metric and adjust its value, add grouping/splitting to the chart on selected dimensions, add filters to the chart, and add a ClickableLink to control control the chart onClick behavior.
 
 ![Metrics chart control single input][2]
+
+### Threshold
+Click the "Add alert threshold" checkbox, and specify the threshold value in the 'Upper threshold value:" field. 
+
+### Timespan
+Click the 'Last 24 hours' radio button to render chart for the last 24 hours (relative timespan). Cick 'Absolute 3 days to now' to show chart from 3 days ago to now (absolute timespan).
+
+### Chart onClick behavior 
+When the chart is clicked, you can control the click behavior by setting the onClick uri KO field. You can do by settting Clickable.uri KO field. (ref how this.monitorChartV2.onClick.uri is being set)
+  - ``undefined``: This is the default behavior. When the control is pinned to the dashboard, it will bring up the MetricsBlade for editing and saving changes back changes to the dashboard. When the chart is hosted inside a blade, it will construct a deeplink, and bring up the MetricsBlade blade for editing. Since the contorl is not hosted in dashboard, saving is not supported.
+  - ``null``: Disable click behavior. Nothing happens when you click.
+  - ``url``:  When url is specified in onClick.uri KO field, it will navigate to the url you specified.
+
+
+
 
 ### End-to-end flow for users
 
