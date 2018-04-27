@@ -54,19 +54,29 @@ The sample has a static chart from DEMO_APP app on top and a configurable chart 
 
 ![Metrics chart control single input][2]
 
-### Threshold
+#### Metrics
+Select 'Server Response Time' and/or 'Exceptions' metric to plot the chart. For each selected metric, a corresponding line (or chart  type, pending on chart type one selected) will be rendered in the chart.
+
+#### Filter on dimension
+Select 'Chicago' and/or 'San Jose' to include data points where 'city' dimension equals to 'Chicago' and/or 'San Jose'.
+
+#### Grouping/Splitting
+Choose to group/split by dimension 'Country', 'City', or no grouping. 
+
+#### Threshold
 Click the "Add alert threshold" checkbox, and specify the threshold value in the 'Upper threshold value:" field. 
 
-### Timespan
-Click the 'Last 24 hours' radio button to render chart for the last 24 hours (relative timespan). Cick 'Absolute 3 days to now' to show chart from 3 days ago to now (absolute timespan).
+#### Visualization
+Choose what type of chart to be rendered by choosing the corresponding radio button.
 
-### Chart onClick behavior 
-When the chart is clicked, you can control the click behavior by setting the onClick uri KO field. You can do by settting Clickable.uri KO field. (ref how this.monitorChartV2.onClick.uri is being set)
-  - ``undefined``: This is the default behavior. When the control is pinned to the dashboard, it will bring up the MetricsBlade for editing and saving changes back changes to the dashboard. When the chart is hosted inside a blade, it will construct a deeplink, and bring up the MetricsBlade blade for editing. Since the contorl is not hosted in dashboard, saving is not supported.
+#### Timespan
+Click the 'Last 24 hours' radio button to render chart for the last 24 hours (relative timespan). Cick 'Absolute 3 days to now' to render chart from 3 days ago to now (absolute timespan).
+
+#### Chart onClick behavior 
+When the chart is clicked, you can control the click behavior by setting the onClick uri KO field. You can do by settting Clickable.uri KO field (reference how this.monitorChartV2.onClick.uri is being set in the sample code).
+  - ``undefined``: This is the default behavior. When click on the chart in the dashboard, it will bring up the MetricsBlade for editing and saving changes back changes to the dashboard. When the chart is hosted inside a blade, it will construct a deeplink, and bring up the MetricsBlade blade for editing/pining. Since it is not hosted inside the dashboard, saving is not supported.
   - ``null``: Disable click behavior. Nothing happens when you click.
   - ``url``:  When url is specified in onClick.uri KO field, it will navigate to the url you specified.
-
-
 
 
 ### End-to-end flow for users
